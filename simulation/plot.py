@@ -5,10 +5,10 @@ import matplotlib.pyplot as plt
 
 ETA_SIGNAL_RATIO = 1000.
 P_SIGNAL_RATIO = 1000.
-phi_ref_signal = 10. * np.pi / 180. * ETA_SIGNAL_RATIO
-theta_ref_signal = 20. * np.pi / 180. * ETA_SIGNAL_RATIO
+phi_ref_signal = 1. * np.pi / 180. * ETA_SIGNAL_RATIO
+theta_ref_signal = 1. * np.pi / 180. * ETA_SIGNAL_RATIO
 psi_dot_ref_signal = 0.
-z_dot_ref_signal = 0.
+z_dot_ref_signal = 1 * P_SIGNAL_RATIO
 P_phi = 10.
 D_phi = 1.
 P_theta = 10.
@@ -50,7 +50,9 @@ initial_state = np.concatenate([
   [0, 0, 0]
 ], dtype=np.float32)
 
-sol = solve_ivp(state_diff, [0, 5], initial_state, t_eval=np.arange(0, 5, 0.01, dtype=np.float32))
+t_eval = np.arange(0, 5, 0.01, dtype=np.float32)
+
+sol = solve_ivp(state_diff, [0, 5], initial_state, t_eval=t_eval)
 
 eta_dot = sol.y[0: 3]
 eta = sol.y[3: 6]
