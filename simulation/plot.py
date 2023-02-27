@@ -61,6 +61,9 @@ plt.plot(sol.t, eta[0], label='phi')
 plt.plot(sol.t, eta[1], label='theta')
 plt.plot(sol.t, eta_dot[2], label='psi_dot')
 plt.plot(sol.t, p_dot[2], label='z_dot')
+plt.plot(sol.t, p[0], label='x')
+plt.plot(sol.t, p[1], label='y')
+plt.plot(sol.t, p[2], label='z')
 
 plt.legend()
 
