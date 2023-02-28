@@ -7,8 +7,8 @@ import matplotlib.pyplot as plt
 
 ETA_SIGNAL_RATIO = 1000.
 P_SIGNAL_RATIO = 1000.
-phi_ref_signal = 2. * np.pi / 180. * ETA_SIGNAL_RATIO
-theta_ref_signal = 2. * np.pi / 180. * ETA_SIGNAL_RATIO
+phi_ref_signal = 5. * np.pi / 180. * ETA_SIGNAL_RATIO
+theta_ref_signal = 5. * np.pi / 180. * ETA_SIGNAL_RATIO
 psi_dot_ref_signal = 0.
 z_dot_ref_signal = 1 * P_SIGNAL_RATIO
 P_phi = 10.
@@ -71,7 +71,7 @@ make_grid(-5, 5, -5, 5, 10)
 
 drone = box(
   pos=vec(0, 0, 0),
-  size=vec(0.304, 0.01, 0.304), # 안 보여서 일부로 5배 크게 함
+  size=vec(0.304, 0.01, 0.304),
   up=vec(0, 1, 0),
   color=color.green,
   make_trail=True,
