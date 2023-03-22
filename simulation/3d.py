@@ -7,8 +7,8 @@ import matplotlib.pyplot as plt
 
 ETA_SIGNAL_RATIO = 1000.
 P_SIGNAL_RATIO = 1000.
-phi_ref_signal = 5. * np.pi / 180. * ETA_SIGNAL_RATIO
-theta_ref_signal = 5. * np.pi / 180. * ETA_SIGNAL_RATIO
+phi_ref_signal = 1. * np.pi / 180. * ETA_SIGNAL_RATIO
+theta_ref_signal = 1. * np.pi / 180. * ETA_SIGNAL_RATIO
 psi_dot_ref_signal = 0.
 z_dot_ref_signal = 1 * P_SIGNAL_RATIO
 P_phi = 10.
@@ -62,10 +62,10 @@ p_dot = sol.y[6: 9]
 p = sol.y[9: 12]
 
 def make_grid (x_min, x_max, z_min, z_max, num):
-  for x in np.linspace(x_min, x_max, num):
-    curve(pos=[vec(x, 0, z_min), vec(x, 0, z_max)], color=color.white, radius=0.01)
-  for z in np.linspace(z_min, z_max, num):
-    curve(pos=[vec(z_min, 0, z), vec(z_max, 0, z)], color=color.white, radius=0.01)
+  for x, c in zip(np.linspace(x_min, x_max, num), np.linspace(0, 1, num)):
+    curve(pos=[vec(x, 0, z_min), vec(x, 0, z_max)], color=color.red * c + color.blue * (1. - c), radius=0.01)
+  for z, c in zip(np.linspace(z_min, z_max, num), np.linspace(0, 1, num)):
+    curve(pos=[vec(x_min, 0, z), vec(x_max, 0, z)], color=color.green * c + color.orange * (1. - c), radius=0.01)
 
 make_grid(-5, 5, -5, 5, 10)
 
